@@ -1,3 +1,82 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom styles for Chuck Norris joke text */
+.joke-text {
+  position: relative;
+  overflow: hidden;
+}
+
+.joke-text::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(251, 146, 60, 0.5), transparent);
+  animation: shimmer 2s infinite;
+}
+
+.joke-text-content {
+  font-family: 'Georgia', serif;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+.joke-text-content::before {
+  content: '"';
+  font-size: 3rem;
+  color: rgba(251, 146, 60, 0.3);
+  position: absolute;
+  left: -0.5rem;
+  top: -1rem;
+  font-family: serif;
+  line-height: 1;
+}
+
+.joke-text-content::after {
+  content: '"';
+  font-size: 3rem;
+  color: rgba(251, 146, 60, 0.3);
+  position: absolute;
+  right: -0.5rem;
+  bottom: -1.5rem;
+  font-family: serif;
+  line-height: 1;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Hover effect for joke container */
+.joke-text:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+/* Loading state styling */
+.joke-text:has(.animate-spin) {
+  background: linear-gradient(90deg, #f9fafb, #f3f4f6, #f9fafb);
+  background-size: 200% 100%;
+  animation: loading-gradient 1.5s ease-in-out infinite;
+}
+
+@keyframes loading-gradient {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
