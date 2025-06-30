@@ -97,14 +97,6 @@ function App() {
             <span>Current Value</span>
             <span className="font-mono">{counter}</span>
           </div>
-          <div className="flex justify-between text-sm text-gray-500 mt-2">
-            <span>Status</span>
-            <span className={`font-medium ${
-              counter === 0 ? 'text-gray-400' : 'text-green-600'
-            }`}>
-              {counter === 0 ? 'At Zero' : 'Active'}
-            </span>
-          </div>
         </div>
       </div>
     </div>
